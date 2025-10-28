@@ -1,0 +1,590 @@
+Creating lps array
+
+lps[i] - contains maximum length of prefix that equals suffix of substring pattern[0...i]
+
+j - current prefix index, i - current element index
+
+   0   1   2   3   4
+   a   b   a   b   a
+   j   i
+   0
+
+Symblos don't match
+
+No smaller prefixes
+
+lps[i] = 0
+
+Move next
+
+   0   1   2   3   4
+   a   b   a   b   a
+   j       i
+   0   0
+
+Symblos match - prefix and suffix match
+
+lps[i] = j + 1
+
+Both indexes are incremented to check matching of bigger prefix and suffix on next iteration
+
+   0   1   2   3   4
+   a   b   a   b   a
+       j       i
+   0   0   1
+
+Symblos match - prefix and suffix match
+
+lps[i] = j + 1
+
+Both indexes are incremented to check matching of bigger prefix and suffix on next iteration
+
+   0   1   2   3   4
+   a   b   a   b   a
+           j       i
+   0   0   1   2
+
+Symblos match - prefix and suffix match
+
+lps[i] = j + 1
+
+Both indexes are incremented to check matching of bigger prefix and suffix on next iteration
+
+   0   1   2   3   4
+   a   b   a   b   a
+               j       i
+   0   0   1   2   3
+
+Searching
+
+t - text index, p - pattern index
+
+   t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+   a   b   a   b   a
+   p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+       t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+   a   b   a   b   a
+       p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+       t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+       a   b   a   b   a
+       p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+       a   b   a   b   a
+           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+           a   b   a   b   a
+           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+               t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+           a   b   a   b   a
+               p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                   t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+           a   b   a   b   a
+                   p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                       t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+           a   b   a   b   a
+                       p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+           a   b   a   b   a
+                           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                               t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+           a   b   a   b   a
+                               p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Pattern found
+
+Entry index: 2
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+                               t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                   a   b   a   b   a
+                               p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                   t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                   a   b   a   b   a
+                                   p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+                                   t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                           a   b   a   b   a
+                                   p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+                                   t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                   a   b   a   b   a
+                                   p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Start of pattern doesn't match
+
+Move next
+
+                                       t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                       a   b   a   b   a
+                                       p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                       a   b   a   b   a
+                                           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+                                           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                           a   b   a   b   a
+                                           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                               t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                           a   b   a   b   a
+                                               p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                   t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                           a   b   a   b   a
+                                                   p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+                                                   t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                   a   b   a   b   a
+                                                   p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Start of pattern doesn't match
+
+Move next
+
+                                                       t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                       a   b   a   b   a
+                                                       p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                       a   b   a   b   a
+                                                           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                               t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                       a   b   a   b   a
+                                                               p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                                   t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                       a   b   a   b   a
+                                                                   p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                                       t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                       a   b   a   b   a
+                                                                       p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                                           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                       a   b   a   b   a
+                                                                           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Pattern found
+
+Entry index: 13
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+                                                                           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                               a   b   a   b   a
+                                                                           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                                               t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                               a   b   a   b   a
+                                                                               p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+                                                                               t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                                       a   b   a   b   a
+                                                                               p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+                                                                               t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                                               a   b   a   b   a
+                                                                               p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Start of pattern doesn't match
+
+Move next
+
+                                                                                   t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                                                   a   b   a   b   a
+                                                                                   p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Start of pattern doesn't match
+
+Move next
+
+                                                                                       t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                                                       a   b   a   b   a
+                                                                                       p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                                                           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                                                       a   b   a   b   a
+                                                                                           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Using information from lps array for optimizing search
+
+p = lps[p - 1]
+
+                                                                                           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                                                           a   b   a   b   a
+                                                                                           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols don't match
+
+Start of pattern doesn't match
+
+Move next
+
+                                                                                               t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                                                               a   b   a   b   a
+                                                                                               p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                                                                   t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                                                               a   b   a   b   a
+                                                                                                   p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                                                                       t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                                                               a   b   a   b   a
+                                                                                                       p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+Symbols match
+
+Incrementing both indexes to check next symbols
+
+                                                                                                           t
+   a   a   a   b   a   b   a   b   f   a   a   b   b   a   b   a   b   a   b   b   b   a   g   a   b   a
+                                                                                               a   b   a   b   a
+                                                                                                           p
+
+lps:
+   a   b   a   b   a
+   0   0   1   2   3
+
+End of search
+
+2,13

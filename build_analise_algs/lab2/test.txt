@@ -1,0 +1,139 @@
+START
+
+Current path
+0 
+Current city 0
+Current cost: 0
+Avaliable cities:
+1 2 3 4 
+
+Reviewing all candidates:
+
+Best candidate cost: INF
+Reviewing city 1
+Lower bound L: 59
+Arc cost S: 1
+S + L: 60, which is better than: INF
+Update best candidate cost: 60
+Update the best candidate city 1
+
+Best candidate cost: 60
+Reviewing city 2
+Lower bound L: 67
+Arc cost S: 13
+S + L: 80
+
+Best candidate cost: 60
+Reviewing city 3
+Lower bound L: 58
+Arc cost S: 23
+S + L: 81
+
+Best candidate cost: 60
+Reviewing city 4
+Lower bound L: 54
+Arc cost S: 7
+S + L: 61
+
+The best candidate city 1
+Travelling there costs: 1
+The total cost was: 0
+Update the total cost: 1
+Update the path:
+0 1 
+Update avaliable cities:
+2 3 4 
+Change city to 1
+
+Current path
+0 1 
+Current city 1
+Current cost: 1
+Avaliable cities:
+2 3 4 
+
+Reviewing all candidates:
+
+Best candidate cost: INF
+Reviewing city 2
+Lower bound L: 61
+Arc cost S: 15
+S + L: 76, which is better than: INF
+Update best candidate cost: 76
+Update the best candidate city 2
+
+Best candidate cost: 76
+Reviewing city 3
+Lower bound L: 50
+Arc cost S: 18
+S + L: 68, which is better than: 76
+Update best candidate cost: 68
+Update the best candidate city 3
+
+Best candidate cost: 68
+Reviewing city 4
+Lower bound L: 48
+Arc cost S: 28
+S + L: 76
+
+The best candidate city 3
+Travelling there costs: 18
+The total cost was: 1
+Update the total cost: 19
+Update the path:
+0 1 3 
+Update avaliable cities:
+2 4 
+Change city to 3
+
+Current path
+0 1 3 
+Current city 3
+Current cost: 19
+Avaliable cities:
+2 4 
+
+Reviewing all candidates:
+
+Best candidate cost: INF
+Reviewing city 2
+Lower bound L: 33
+Arc cost S: 34
+S + L: 67, which is better than: INF
+Update best candidate cost: 67
+Update the best candidate city 2
+
+Best candidate cost: 67
+Reviewing city 4
+Lower bound L: 20
+Arc cost S: 38
+S + L: 58, which is better than: 67
+Update best candidate cost: 58
+Update the best candidate city 4
+
+The best candidate city 4
+Travelling there costs: 38
+The total cost was: 19
+Update the total cost: 57
+Update the path:
+0 1 3 4 
+Update avaliable cities:
+2 
+Change city to 4
+
+Travelling to last city costs: 7
+Update the total cost: 64
+Update the path:
+0 1 3 4 2 
+
+Travelling to the start costs 21
+Update the total cost 85
+Update the path:
+0 1 3 4 2 0 
+
+END
+
+ANSWER:
+
+85
+0 1 3 4 2 0 
